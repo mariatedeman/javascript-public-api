@@ -33,12 +33,23 @@ button.addEventListener('click', function (event) {
             
             let positiveEmojis = "";
             let negativeEmojis = "";
+            let usedEmojis = [];
+
+            
 
             // EMOJI RANDOMIZER
             for (let i = 0; i <= 5; i++) {
-                
+
+                // GET RANDOM NUMBER, DO IT AGAIN IF NUMBER ALREADY HAS BEEN USED
                 let random = Math.round(Math.random() * 1163);
+                
+                while (usedEmojis.includes(random)) {
+                    random = Math.round(Math.random() * 1163);
+                }
+                usedEmojis.push(random);
+
                 let randomEmoji = emojis[random].htmlCode[0];
+                
     
                 // PUT EVEN NUMBERS IN POSITIVE AND UNEVEN IN NEGATIVE DIV CONTAINER
                 if (i % 2 == 0) {
