@@ -35,7 +35,7 @@ button.addEventListener('click', function (event) {
             let negativeEmojis = "";
 
             // EMOJI RANDOMIZER
-            for (let i = 0; i <= 9; i++) {
+            for (let i = 0; i <= 5; i++) {
                 
                 let random = Math.round(Math.random() * 1163);
                 let randomEmoji = emojis[random].htmlCode[0];
