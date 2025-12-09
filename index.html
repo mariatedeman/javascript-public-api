@@ -12,7 +12,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button>Get today's prediction</button>
+    <div class="select-button">
+        <p>Do any of the options below feel extra interesting today?</p>
+        <select id="dropdown">
+            <option value="0">All areas</option>
+            <option value="1">People and emotions</option>
+            <option value="2">Nature</option>
+            <option value="3">Food and drink</option>
+            <option value="4">Travels</option>
+            <option value="5">Activites</option>
+            <option value="6">Objects</option>
+        </select>
+
+        <button>Get today's prediction</button>
+    </div>
+
     <section>
 
         <h2 id="advice"></h2>
@@ -33,5 +47,6 @@
     </section>
     
     <script src="script.js"></script>
+    <script src="functions.js"></script>
 </body>
 </html>

@@ -1,15 +1,20 @@
 const emojiUrl = 'https://emojihub.yurace.pro/api/all';
 const adviceUrl = 'https://api.adviceslip.com/advice';
 const button = document.querySelector('button');
+const selectAndButton = document.querySelector('.select-button');
 const section = document.querySelector('section');
+const dropdown = document.getElementById('dropdown');
+const categories = [];
 
+////////////////////////////////////////////////////////////
 
+// TODAY'S READING
 button.addEventListener('click', function (event) {
 
     section.style.display = "flex";
-    button.style.display = "none";
+    selectAndButton.style.display = "none";
 
-    fetch(adviceUrl)
+    fetch(adviceUrl) // FETCH ADVICE API
         .then ((response) => {
             return response.json();
         })
@@ -20,64 +25,53 @@ button.addEventListener('click', function (event) {
             adviceContainer = document.getElementById("advice");
             adviceContainer.innerHTML = advice;
         });
-    
-    fetch(emojiUrl)
+
+////////////////////////////////////////////////////////////
+
+    fetch(emojiUrl) // FETCH EMOJI API
         .then ((response) => {
             return response.json()
         })
         .then ((emojis) => {
-            console.log(emojis);
 
-            const positiveSigns = document.getElementById('positive-signs');
-            const negativeSigns = document.getElementById('negative-signs');
-            
-            let positiveEmojis = "";
-            let negativeEmojis = "";
-            let usedEmojis = [];
+            // CREATE ARRAYS FOR EVERY CATEGORY
+            const cat0 = []; // ALL EMOJIS
+            const cat1 = []; // SMILEYS AND PEOPLE
+            const cat2 = []; // ANIMALS AND NATURE
+            const cat3 = []; // FOOD AND DRINK
+            const cat4 = []; // TRAVEL AND PLACES
+            const cat5 = []; // ACTIVITIES
+            const cat6 = []; // OBJECTS
 
-            
-
-            // EMOJI RANDOMIZER
-            for (let i = 0; i <= 5; i++) {
-
-                // GET RANDOM NUMBER, DO IT AGAIN IF NUMBER ALREADY HAS BEEN USED
-                let random = Math.round(Math.random() * 1163);
+            emojis.forEach(emoji => {
+                if (emoji.category === "symbols" || emoji.category === "flags") return; // IGNORE SYMBOLS AND FLAGS
+                if (emoji.name.includes('type')) return; // ONLY ACCEPT DEFAULT EMOJI
                 
-                while (usedEmojis.includes(random)) {
-                    random = Math.round(Math.random() * 1163);
+                // FILL CATEGORY ARRAYS WITH CORRECT EMOJIS
+                cat0.push(emoji);
+
+                if (emoji.category === 'smileys and people') {
+                    cat1.push(emoji);
+                } else if (emoji.category === 'animals and nature') {
+                    cat2.push(emoji);
+                } else if (emoji.category === 'food and drink') {
+                    cat3.push(emoji);
+                } else if (emoji.category === 'travel and places') {
+                    cat4.push(emoji);
+                } else if (emoji.category === 'activities') {
+                    cat5.push(emoji);
+                } else if (emoji.category === 'objects') {
+                    cat6.push(emoji);
                 }
-                usedEmojis.push(random);
+            });
 
-                let randomEmoji = emojis[random].htmlCode[0];
-                
-    
-                // PUT EVEN NUMBERS IN POSITIVE AND UNEVEN IN NEGATIVE DIV CONTAINER
-                if (i % 2 == 0) {
-                    positiveEmojis += `${randomEmoji} `;
-                } else {
-                    negativeEmojis += `${randomEmoji} `;
-                }
+            const categories = [cat0, cat1, cat2, cat3, cat4, cat5, cat6];
 
-                positiveSigns.innerHTML = positiveEmojis;
-                negativeSigns.innerHTML = negativeEmojis;
-
-            }
-    
+            const dropdownValue = dropdown.value;
+            const category = categories[dropdownValue];
             
-            // RANDOMIZER
-            // let randomEmoji = Math.round(Math.random() * emojis.length);
-            // console.log(randomEmoji);
-            // emojiContainer.innerHTML = emojis[randomEmoji].htmlCode[0];
-    
-    
-            // ALL EMOJIS
-            // emojis.forEach(emoji => {
-            //     const emojiIcon = emoji.htmlCode[0];
-                
-            //     // EMOJI DISPLAYED IN CONTAINER
-            //     emojiContainer.innerHTML += emojiIcon;
-            // })
+            getRandomEmojis(category);
+
         });
-
 })    
 

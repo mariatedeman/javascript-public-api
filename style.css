@@ -2,7 +2,7 @@
     --heading-font: Ephesis;
     --body-font: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --primary-purple: #7c3a7c;
-    --secondary-purple: #651c65;
+    --secondary-purple: #310e43;
     --gold: #daa520;
 }
 
@@ -29,6 +29,7 @@ body {
 }
 
 
+/* FONTS */
 h1, h2 {
     font-family: var(--heading-font);
     font-size: 2.5rem;
@@ -40,12 +41,41 @@ p {
     font-size: 1rem;
 }
 
-button {
-    position: absolute;
-    padding: 20px 25px;
+/* SELECT AND BUTTON */
+.select-button {
+    max-width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #FFFFFF;
+}
 
+#dropdown {
+    padding: 15px 10px;
+    width: 100%;
+    border-radius: 5px;
     border: none;
-    border-radius: 125px;
+    
+    font-family: var(--body-font);
+    font-size: 1rem;
+    color: var(--secondary-purple);
+    text-align: center;
+
+    background-color: #d0a4b1;
+    box-shadow: 0px 0px 150px 25px var(--gold);
+}
+
+.select-button p {
+    text-align: center;
+    z-index: 2;
+}
+
+button {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
 
     font-size: 1rem;
     font-family: var(--body-font);
@@ -53,10 +83,11 @@ button {
     background-color: var(--secondary-purple);
     color: white;
     opacity: 70%;
-    box-shadow: 0px 0px 100px 15px var(--gold);
+    z-index: 2;
 }
 
 
+/* PRESENTATION */
 section {
     display: none;
     padding: 2rem;
@@ -107,6 +138,10 @@ section {
     h1, h2 {
         font-size: 3rem;
     }
+
+    .select-button {
+        max-width: 40%;
+    }
     
     section {
         width: 60vw;
@@ -114,29 +149,13 @@ section {
     }
 
     button {
-        position: absolute;
-        padding: 7px;
-
+        padding: 20px 25px;
         border: none;
-        border-radius: 50%;
-
-        font-size: 0rem;
-        font-family: var(--body-font);
-
-        background-color: var(--gold);
-        color: white;
-        opacity: 70%;
-
-        box-shadow: 0px 0px 10px 5px var(--gold);
-        transition: all 0.5s ease-in;
+        border-radius: 5px;
     }
 
     button:hover {
-        padding: 35px 50px;
-        border-radius: 125px;
-        font-size: 1.5rem;
-        box-shadow: 0px 0px 150px 15px var(--gold);
-        background-color: var(--secondary-purple);
+        opacity: 100%;
     }
 
     #positive-signs,
@@ -151,6 +170,10 @@ section {
 }
 
 @media screen and (min-width: 1125px) {
+    .select-button {
+        max-width: 25%;
+    }    
+    
     section {
         padding: 100px;
     }
@@ -162,6 +185,10 @@ section {
 
 
 @media screen and (min-width: 1440px) {
+    .select-button {
+        max-width: 20%;
+    }
+
     section {
         width: 50vw;
     }
