@@ -7,33 +7,46 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seaweed+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button>Get today's prediction</button>
-    <section>
+    <div class="select-button">
+        <p>Which path speaks to you today?</p>
+        <select id="dropdown">
+            <option value="0">All paths</option>
+            <option value="1">Souls & Connections</option>
+            <option value="2">Wild Earth & Growth</option>
+            <option value="3">Nourishment & Flavor</option>
+            <option value="4">Journeys & Destinations</option>
+            <option value="5">Movements of Life</option>
+            <option value="6">Artifacts & Objects</option>
+        </select>
 
+        <button>Get today's prediction</button>
+    </div>
+
+    <section>
+        <p class="selected-category"></p>
         <h2 id="advice"></h2>
         <div id="emoji-container">
 
                 <span>
-                    <p>Postitive signs</p>
-                <div id="positive-signs">
-                </div>
+                    <p>Look for</p>
+                <p id="positive-signs"></p>
             </span>
 
             <span>
                 <p>Beware of</p>
-                <div id="negative-signs">
-                </div>
+                <p id="negative-signs"></p>
             </span>
-            
         </div>
-    
+        
+        <p>Come back tomorrow for your next reading...</p>
     </section>
-
-    <script src="script.js"></script>
+    
+    <script src="/script/script.js"></script>
+    <script src="/script/functions.js"></script>
 </body>
 </html>
