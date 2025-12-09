@@ -1,9 +1,10 @@
 :root {
     --heading-font: Ephesis;
     --body-font: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --primary-purple: #7c3a7c;
+    --background-purple: #503e50;
     --secondary-purple: #310e43;
     --gold: #daa520;
+    --pink: #d0a4b1;
 }
 
 * {
@@ -25,7 +26,7 @@ body {
     background-position: center;
     background-blend-mode: multiply;
 
-    background-color: var(--primary-purple);
+    background-color: var(--background-purple);
 }
 
 
@@ -63,7 +64,7 @@ p {
     text-align: center;
 
     background-color: #d0a4b1;
-    box-shadow: 0px 0px 150px 25px var(--gold);
+    box-shadow: 0px 0px 200px 25px var(--gold);
 }
 
 .select-button p {
@@ -72,7 +73,7 @@ p {
 }
 
 button {
-    padding: 15px 20px;
+    padding: 18px 20px;
     width: 100%;
     border: none;
     border-radius: 5px;
@@ -109,10 +110,12 @@ section {
 #emoji-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    gap: 1rem;
     justify-content: center;
+    gap: 1rem;
+
+    width: 100%;
     margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 #positive-signs,
@@ -120,11 +123,7 @@ section {
     font-size: 2.5rem;
 }
 
-#negative-signs {
-    margin-bottom: 2rem;
-}
-
-
+/* ANIMATIONS */
 @keyframes zoomIn {
     from {
         transform: scale(0.7);
@@ -134,6 +133,7 @@ section {
 }
 
 
+/* MEDIA QUERIES */
 @media screen and (min-width: 700px) {
     h1, h2 {
         font-size: 3rem;
@@ -146,12 +146,6 @@ section {
     section {
         width: 60vw;
         padding: 60px;
-    }
-
-    button {
-        padding: 20px 25px;
-        border: none;
-        border-radius: 5px;
     }
 
     button:hover {

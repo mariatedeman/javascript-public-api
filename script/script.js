@@ -2,6 +2,7 @@ const emojiUrl = 'https://emojihub.yurace.pro/api/all';
 const adviceUrl = 'https://api.adviceslip.com/advice';
 const button = document.querySelector('button');
 const selectAndButton = document.querySelector('.select-button');
+const selectedCategory = document.querySelector('.selected-category');
 const section = document.querySelector('section');
 const dropdown = document.getElementById('dropdown');
 const categories = [];
@@ -73,5 +74,4 @@ button.addEventListener('click', function (event) {
             getRandomEmojis(category);
 
         });
-})    
-
+})
