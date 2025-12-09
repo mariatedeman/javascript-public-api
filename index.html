@@ -12,9 +12,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button>Get today's prediction</button>
-    <section>
+    <div class="select-button">
+        <p>Which path speaks to you today?</p>
+        <select id="dropdown">
+            <option value="0">All paths</option>
+            <option value="1">Souls & Connections</option>
+            <option value="2">Wild Earth & Growth</option>
+            <option value="3">Nourishment & Flavor</option>
+            <option value="4">Journeys & Destinations</option>
+            <option value="5">Movements of Life</option>
+            <option value="6">Artifacts & Objects</option>
+        </select>
 
+        <button>Get today's prediction</button>
+    </div>
+
+    <section>
+        <p class="selected-category"></p>
         <h2 id="advice"></h2>
         <div id="emoji-container">
 
@@ -32,6 +46,7 @@
         <p>Come back tomorrow for your next reading...</p>
     </section>
     
-    <script src="script.js"></script>
+    <script src="/script/script.js"></script>
+    <script src="/script/functions.js"></script>
 </body>
 </html>
