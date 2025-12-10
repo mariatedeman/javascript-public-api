@@ -15,8 +15,10 @@ function getRandomEmojis(category) {
             random = Math.floor(Math.random() * category.length);
         }
         usedEmojis.push(random);
-                    
-        let randomEmoji = category[random].htmlCode[0];
+
+        // CONVERT UNICODE TO EMOJI
+        let codePoint = parseInt(category[random].unicode[0].replace("U+", ""), 16);
+        let randomEmoji = String.fromCodePoint(codePoint);
                         
         // PUT EVEN NUMBERS IN POSITIVE AND UNEVEN IN NEGATIVE DIV CONTAINER
         if (i % 2 == 0) {
@@ -25,7 +27,7 @@ function getRandomEmojis(category) {
             negativeEmojis += `${randomEmoji} `;
         }
                         
-        positiveSigns.innerHTML = positiveEmojis;
-        negativeSigns.innerHTML = negativeEmojis;
+        positiveSigns.textContent = positiveEmojis;
+        negativeSigns.textContent = negativeEmojis;
     }
 }
