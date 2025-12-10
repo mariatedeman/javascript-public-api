@@ -24,7 +24,7 @@ button.addEventListener('click', function (event) {
             advice = advice['slip']['advice'];
     
             adviceContainer = document.getElementById("advice");
-            adviceContainer.innerHTML = advice;
+            adviceContainer.textContent = advice;
         });
 
 ////////////////////////////////////////////////////////////
@@ -34,6 +34,8 @@ button.addEventListener('click', function (event) {
             return response.json()
         })
         .then ((emojis) => {
+
+            console.log(emojis[0].unicode[0]);
 
             // CREATE ARRAYS FOR EVERY CATEGORY
             const cat0 = []; // ALL EMOJIS
