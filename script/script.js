@@ -7,7 +7,7 @@ const section = document.querySelector('section');
 const dropdown = document.getElementById('dropdown');
 const categories = [];
 
-////////////////////////////////////////////////////////////
+//////////////////// START VIEW ////////////////////////
 
 // TODAY'S READING
 button.addEventListener('click', function (event) {
@@ -27,7 +27,7 @@ button.addEventListener('click', function (event) {
             adviceContainer.textContent = advice;
         });
 
-////////////////////////////////////////////////////////////
+///////////////////// DATA LOGIC //////////////////////////
 
     fetch(emojiUrl) // FETCH EMOJI API
         .then ((response) => {
